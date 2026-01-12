@@ -1,0 +1,42 @@
+<?php
+/**
+ * Author : Salim Nazir
+ * Email : salnazi@gmail.com
+ * Powered By : JA Square
+ * Module : JA Square Marketplace
+ * FILENAME : db_connect.php
+ * Path : /business-card/db_connect.php
+ * Updated : 2025-12-30 00:20:00 (Asia/Kolkata +5:30)
+ * Version : 1.0.0
+ * Status : Active
+ * Logic : Centralized Database Connection with Environment Detection.
+ */
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$host_name = $_SERVER['HTTP_HOST'];
+$is_live = (strpos($host_name, 'jafmarketplace.in') !== false);
+
+if ($is_live) {
+    include('../../../live_db_connect.php');
+    $tbl_prefix = 'businesscard_';
+} else {
+    $host = 'localhost';
+    $user = 'root';
+    $pass = '';
+    $dbname = 'jafmarke_app';
+    $tbl_prefix = 'businesscard_';
+}
+
+$conn = mysqli_connect($host, $user, $pass, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+mysqli_set_charset($conn, "utf8mb4");
+
+// Global table prefix variable for queries
+$table_prefix = $tbl_prefix;
+?>
