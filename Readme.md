@@ -1,4 +1,4 @@
-# JA Square Business Card Pro Designer
+# JA Square Business Card Designer
 **Version:** 1.7.0  
 **Author:** Salim Nazir  
 **Powered By:** JA Square Marketplace
@@ -45,9 +45,6 @@ A high-fidelity, professional web-based design suite built with **Fabric.js** an
 2.  **Database Configuration**
     * Edit `db_connect.php` with your credentials.
     * Run `db_setup.php` to initialize the tables. *Note: This script will drop and recreate tables on every run.*
-
-3.  **CORS Handling**
-    Ensure your server allows cross-origin requests for remote images. The application uses `{ crossOrigin: 'anonymous' }` to handle canvas tainting.
 
 ---
 
